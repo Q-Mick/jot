@@ -1,0 +1,23 @@
+/* BASIC STYLES HERE */
+:root {
+  --bg-note: #384457;
+}
+
+.note-card{
+  background-color: #3d4654
+}
+.my-colors{
+  background-color: #36364c;
+}
+
+.my-font{
+  /* font-family: 'Exo 2', sans-serif; */
+  font-family: 'Londrina Outline', cursive;
+  font-size: 2.50rem;
+}
+
+.btn-create{
+  width: 10rem;
+  background-color: black;
+
+}
