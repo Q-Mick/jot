@@ -9,14 +9,24 @@ function _drawNote(){
   let filterNotes = notes.filter(n => n.user == appState.currentUser)
   let totalNotes = filterNotes.length
   let user = appState.currentUser
-  let template = `${user} - Total Notes: ` + totalNotes
+  let template = `User: ${user} - Total Notes: ` + totalNotes
   // notes.forEach(n => template += n.NoteTemplate)
   // setHTML('notes', template)
   // STUB This code will be used to filter notes per user 
 
   // console.log(filterNotes)
   filterNotes.forEach(n => template += n.NoteTemplate)
-  
+  template += `<div class="col-12">
+
+  <form class="p-2" action="" onsubmit="app.notesController.createNote()">
+    <input type="text" placeholder="Note Title" name="title" minlength="3" maxlength="15">
+    <button class="btn btn-success w-15 my-1" type="submit"><i class="mdi mdi-plus-box" >Create</i></button>
+    <div class="mb-3 col-12">
+      <label for="color" class="form-label">Note Color</label>
+      <input class="w-20" required type="color" class="form-control" id="color" name="color" placeholder="Note Color">
+    </div>
+  </form>
+</div>`
     
   setHTML('notes', template)
 }

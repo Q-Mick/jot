@@ -27,9 +27,10 @@ export class Note {
     
     return `
     <div class="col elevation-5">
-        <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
+        <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0 fw-bold">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
         <p class="m-0 px-1">Created on ${this.dateCreated}</p>
         <p class="px-1 my-updated">Updated: ${this.updatedTime} on ${date} </p>
+        </div>
         `
   }
   get ComputeDate() {
@@ -53,6 +54,7 @@ export class Note {
       }
     }
     if (minutes < 10) {
+      // @ts-ignore
       minutes = '0' + minutes
     }
     let updateTime = hours + ':' + minutes + ' ' + ampm
