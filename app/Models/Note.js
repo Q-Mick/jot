@@ -9,7 +9,8 @@ export class Note {
     this.id = generateId()
     this.title = data.title
     // this.description = data.description
-    this.dateCreated = data.date ? new Date(data.date) : new Date()
+    this.dateCreated = data.dateCreated
+    // ? new Date(data.date) : new Date()
     this.body = data.body || 'Write your note here'
     this.updatedTime = data.updatedTime
     this.user = data.user
@@ -20,17 +21,20 @@ export class Note {
   }
 
   get NoteTemplate() {
+    
     let date = this.ComputeDate
+    console.log(this.dateCreated);
     
     return `
     <div class="col elevation-5">
         <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
-        <p class="m-0 px-1">Created on ${date}</p>
+        <p class="m-0 px-1">Created on ${this.dateCreated}</p>
         <p class="px-1 my-updated">Updated: ${this.updatedTime} on ${date} </p>
         `
   }
   get ComputeDate() {
-    let date = this.dateCreated
+    let date = new Date()
+    // let date = this.dateCreated
     // NOTE each date.getXYZ is its own string so it needs to be wrapped in its own parens and then string concatenated with the other info 
     // NOTE trying to memorize this
     return (date.getMonth() + 1) + '/' + (date.getDate()) + '/' + (date.getFullYear())
@@ -49,7 +53,7 @@ export class Note {
       }
     }
     if (minutes < 10) {
-      minutes = 0 + minutes
+      minutes = '0' + minutes
     }
     let updateTime = hours + ':' + minutes + ' ' + ampm
     return updateTime

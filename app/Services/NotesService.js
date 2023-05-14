@@ -41,6 +41,11 @@ class NotesService {
       Pop.toast("Your note must have a title.")
       return
     }
+    let createdTime = newNote.ComputeDate
+    newNote.dateCreated = createdTime
+    let update = newNote?.ComputeUpdateTime
+    newNote.updatedTime = update
+    console.log(createdTime);
     newNote.user = appState.currentUser
     newNote.body = "Type your note here"
     appState.Notes.push(newNote)
