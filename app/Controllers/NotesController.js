@@ -8,12 +8,13 @@ function _drawNote(){
   let notes = appState.Notes
   let filterNotes = notes.filter(n => n.user == appState.currentUser)
   let totalNotes = filterNotes.length
-  let template = 'Total Notes: ' + totalNotes
+  let user = appState.currentUser
+  let template = `${user} - Total Notes: ` + totalNotes
   // notes.forEach(n => template += n.NoteTemplate)
   // setHTML('notes', template)
   // STUB This code will be used to filter notes per user 
 
-  console.log(filterNotes)
+  // console.log(filterNotes)
   filterNotes.forEach(n => template += n.NoteTemplate)
   
     
@@ -21,9 +22,22 @@ function _drawNote(){
 }
 
 function _drawActiveNote(){
+  // if (appState.currentNote. = "") {
+  //   setHTML('notes-body', "")
+  // }
   let note = appState.currentNote
   // @ts-ignore
+  console.log(note);
+  // @ts-ignore
   setHTML('notes-body', note.ActiveNoteTemplate)
+  
+  
+}
+
+function _drawBlank(){
+  let note = appState.currentNote
+  // @ts-ignore
+  setHTML('notes-body', note.EmptyTemplate)
 }
 
 export class NotesController {
@@ -32,6 +46,7 @@ export class NotesController {
       // _drawNote()
       appState.on('currentUser', _drawNote)
       appState.on('currentNote', _drawActiveNote)
+
 
   }
 
@@ -42,7 +57,7 @@ setActiveNote(noteID){
 createNote(){
   // @ts-ignore
   window.event.preventDefault()
-    console.log('form is being submitted')
+    // console.log('form is being submitted')
 
     let form = event?.target
     let formData = getFormData(form)
@@ -54,17 +69,24 @@ createNote(){
 
 saveNote(noteID){
   let docElem = document.getElementById("note-body")
+  // @ts-ignore
   let noteBody = docElem.value
-  console.log(noteBody)
+  Pop.toast('Note has been saved.')
+  // console.log(noteBody)
+  let note = appState.currentNote
+  // @ts-ignore
+  note.body = noteBody
   notesService.saveNote(noteBody, noteID)
 }
 async deleteNote(noteID){
-  console.log("delete Note function not built yet");
+  
   // @ts-ignore
   let currentNote = appState.currentNote
-  console.log('delete the note', noteID);
+  console.log(currentNote);
+  // console.log('delete the note', noteID);
         if (await Pop.confirm("Are you sure about that?")) {
             notesService.deleteNote(noteID)
+            _drawBlank()
         }
 }
 async login() {

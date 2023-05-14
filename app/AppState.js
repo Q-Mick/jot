@@ -28,7 +28,7 @@ class AppState extends EventEmitter {
   // ]
   /** @type {import('./Models/Note').Note[]} */
   Notes = loadState('notes', [Note])
-
+  
   currentUser = null
   currentNote = null
 }

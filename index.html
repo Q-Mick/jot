@@ -50,7 +50,7 @@
     }
   </style>
 <!-- SECTION top row containing app title and login button -->
-  <body class="my-colors p-1">
+  <body onload="app.notesController.login()" class="my-colors p-1">
     <section class="container-fluid p">
       <div class="row">
         <div class="col-12 d-flex justify-content-between">
@@ -79,8 +79,12 @@
 <div class="col-12">
 
   <form class="p-2" action="" onsubmit="app.notesController.createNote()">
-    <input type="text" placeholder="Note Title" name="title">
+    <input type="text" placeholder="Note Title" name="title" minlength="3" maxlength="15">
     <button class="btn btn-success w-15 my-1" type="submit"><i class="mdi mdi-plus-box" >Create</i></button>
+    <div class="mb-3 col-12">
+      <label for="color" class="form-label">Note Color</label>
+      <input class="w-20" required type="color" class="form-control" id="color" name="color" placeholder="Note Color">
+    </div>
   </form>
 </div>
     </div>
