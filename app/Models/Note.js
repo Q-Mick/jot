@@ -26,7 +26,7 @@ export class Note {
     console.log(this.dateCreated);
     
     return `
-    <div class="col elevation-5">
+    <div class="col elevation-5 my-1">
         <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0 fw-bold">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
         <p class="m-0 px-1">Created on ${this.dateCreated}</p>
         <p class="px-1 my-updated">Updated: ${this.updatedTime} on ${date} </p>
@@ -86,4 +86,45 @@ get ActiveNoteTemplate() {
           </div>
     `
   }
+
+  // get OffCanvasTemplate() {
+    
+  //   let date = this.ComputeDate
+  //   console.log(this.dateCreated);
+    
+  //   return `
+
+  //           <div class="offcanvas offcanvas-start text-white" style="background-color: #36364c;" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  //         <div class="offcanvas-header">
+  //           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notes</h5>
+  //           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  //         </div>
+  //         <div class="offcanvas-body">
+  //           <div>
+  //             This is a work in progress and will soon have a list of notes and full note creation and deletion functionality.
+  //           </div>
+            
+  //           <div class="col elevation-5">
+  //         <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0 fw-bold">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
+  //         <p class="m-0 px-1">Created on ${this.dateCreated}</p>
+  //         <p class="px-1 my-updated">Updated: ${this.updatedTime} on ${date} </p>
+  //       </div>
+        
+        
+  //       <div class="dropdown mt-3">
+  //         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+  //           Note tools
+  //         </button>
+  //         <ul class="dropdown-menu">
+  //           <li><a class="dropdown-item" href="#">Create Note</a></li>
+  //           <li><a class="dropdown-item" href="#">Delete Note</a></li>
+            
+  //         </ul>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //       `
+  // }
+
 }

@@ -35,7 +35,11 @@ class NotesService {
   }
 
   createNote(formData) {
-    console.log("creating note for ", appState.currentUser)
+    if (!appState.currentUser){
+      Pop.toast("You must login to use jot")
+      return
+    }
+    // console.log("creating note for ", appState.currentUser)
     let newNote = new Note(formData)
     if (newNote.title == "") {
       Pop.toast("Your note must have a title.")

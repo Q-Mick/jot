@@ -51,19 +51,60 @@
   </style>
 <!-- SECTION top row containing app title and login button -->
   <body onload="app.notesController.login()" class="my-colors p-1">
-    <section class="container-fluid p">
+    <section class="container-fluid">
       <div class="row">
         <div class="col-12 d-flex justify-content-between">
           <p class="mx-5 my-font text-white">jot</p>
-          <i class="mdi mdi-login text-white-50 my-font mx-3" onclick="app.notesController.login()"></i>
+          <i class="mdi mdi-login text-white-50 my-font mx-3" onclick="app.notesController.login()">Change Users</i>
         </div>
       </div>
     </section>
 
-<section class="container">
-  <div  class="row elevation-5 text-white note-card">
-    <div class="row justify-content-between">
+    <!-- start off canvas -->
+    <!-- <section class="container">
 
+      <a class="btn btn-primary m-1 p-1" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        Show Notes
+      </a>
+      <div id="off-canvas">
+
+        <div class="offcanvas offcanvas-start text-white" style="background-color: #36364c;" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Notes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div>
+              This is a work in progress and will soon have a list of notes and full note creation and deletion functionality.
+            </div>
+            
+            <div class="col elevation-5">
+          <p onclick="app.notesController.setActiveNote('${this.id}')" class="fs-5 px-1 m-0 fw-bold">${this.title} <button class="rounded" style="background-color: ${this.color}"></button></p>
+          <p class="m-0 px-1">Created on ${this.dateCreated}</p>
+          <p class="px-1 my-updated">Updated: ${this.updatedTime} on ${date} </p>
+        </div>
+        
+        
+        <div class="dropdown mt-3">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            Note tools
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Create Note</a></li>
+            <li><a class="dropdown-item" href="#">Delete Note</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section> -->
+  
+    <!-- end off canvas -->
+    <section class="container">
+      <div  class="row elevation-5 text-white note-card">
+        <div class="row justify-content-between">
+          
       <!-- <button class="btn btn-primary btn-create p-3 m-2" onclick="app.notesController.createNote()">
         Create Note
       </button> -->
